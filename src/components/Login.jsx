@@ -1,14 +1,18 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
-import { UserContext } from "../authProvider/AuthProvider";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import useAuth from "../hooks/useAuth";
+
 
 
 
 const Login = () => {
+    const data = useAuth()
+    console.log(data);
 
 
-    const data = useContext(UserContext)
+    // const data = useContext(UserContext)
     const { existingUser ,setUser} = data
+    const navigate = useNavigate()
 
     const handleForm = (e) => {
         e.preventDefault()
@@ -22,12 +26,23 @@ const Login = () => {
             // Signed in 
             const user = userCredential.user;
             setUser(user)
+            Swal.fire(
+                'Successfully login',
+                'success'
+              )
+            navigate('/')
             // ...
           })
           .catch((error) => {
-            console.log('password milena')
             const errorCode = error.code;
             const errorMessage = error.message;
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: errorCode   
+            //   footer: '<a href="#">Why do I have this issue?</a>',
+            });
+
           });
     }
 
@@ -80,7 +95,7 @@ const Login = () => {
                     <div className="text-grey-dark mt-6">
                         Do not have an account?
                         <Link to={'/register'} className="no-underline border-b border-blue text-blue " href="../login/">
-                            Sign in
+                            Sign up
                         </Link>.
                     </div>
                 </div>

@@ -1,18 +1,21 @@
 
 import { useContext } from 'react';
 import { UserContext } from './../authProvider/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 
 
 const Register = () => {
 
     const authData = useContext(UserContext)
     const {registration,setUser}= authData
+    const navigate = useNavigate()
     // console.log(authData)
 
     const handleForm= (e)=>{
         e.preventDefault()
         const email = e.target.email.value 
         const password = e.target.password.value 
+        navigate('/')
         // const text = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)
 
         registration(email,password)
@@ -26,6 +29,7 @@ const Register = () => {
           .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
+
             // ..
           });
 

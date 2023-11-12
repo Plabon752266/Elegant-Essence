@@ -6,6 +6,9 @@ import MainLayouts from "../layouts/MainLayouts";
 import Home from "../pages/Home";
 import Register from "../components/Register";
 import Login from "../components/Login";
+import BrandDetails from "../pages/BrandDetails";
+import PrivateRoute from "./PrivateRoute";
+import AddProduct from "../pages/AddProduct";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -22,6 +25,16 @@ const router = createBrowserRouter([
             {
                 path:'/login',
                 element: <Login></Login>
+            },
+            {
+                path: '/brand/:name/details',
+                element: <BrandDetails></BrandDetails>
+            },
+            {
+                path:'/addproduct',
+                element: <PrivateRoute>
+                    <AddProduct></AddProduct>
+                </PrivateRoute>
             }
         ]
 
