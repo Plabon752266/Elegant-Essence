@@ -6,12 +6,10 @@ import useAuth from "../hooks/useAuth";
 
 
 const Login = () => {
-    const data = useAuth()
-    console.log(data);
+    const { existingUser, setUser } = useAuth();
 
 
     // const data = useContext(UserContext)
-    const { existingUser ,setUser} = data
     const navigate = useNavigate()
 
     const handleForm = (e) => {
@@ -39,8 +37,7 @@ const Login = () => {
             Swal.fire({
               icon: "error",
               title: "Oops...",
-              text: errorCode   
-            //   footer: '<a href="#">Why do I have this issue?</a>',
+              text: errorCode   ,
             });
 
           });

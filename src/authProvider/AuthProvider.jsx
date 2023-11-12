@@ -30,6 +30,7 @@ const AuthProvider = ({children}) => {
               // https://firebase.google.com/docs/reference/js/auth.user
             //   const uid = user.uid;
               setUser(user)
+              setLoading(false)
               // ...
             } else {
               // User is signed out
