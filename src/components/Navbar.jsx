@@ -36,7 +36,7 @@ const Navbar = () => {
             {navlist}
           </ul>
         </div>
-        <a className="p-4">Elegant-Essence</a>
+        <a className="p-4 text-4xl font-semibold">Elegant-Essence</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">

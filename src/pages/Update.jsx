@@ -74,7 +74,8 @@ const Update = () => {
           <select
             className="select select-bordered w-full max-w-xs"
             name="brand"
-            defaultValue={brand}
+            
+            value={brand}
           >
             <option disabled>select brand name?</option>
             <option value="loreal" className="capitalize">

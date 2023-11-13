@@ -126,7 +126,7 @@ const AddProduct = () => {
             <textarea
                 rows={8}
               className="textarea textarea-primary"
-              placeholder="Bio"
+              placeholder="Description"
               name="productDescription"
             ></textarea>
           </div>
